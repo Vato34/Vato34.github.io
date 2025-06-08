@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pingüinos</title>
+    <style>
+        /* Estilo general del cuerpo */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Títulos principales */
+        h1, h2 {
+            color: #4682b4;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        /* Navegación de las páginas */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .nav a {
+            color: #4682b4;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+            color: #0066cc;
+        }
+
+        /* Páginas de contenido */
+        .content-page {
+            display: none;
+            padding: 20px;
+            width: 80%;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Animación para la transición de las páginas */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Estilo para tablas */
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: orange;
+            color: blue;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f0f0f0;
+        }
+
+        tr:hover {
+            background-color: pink;
+        }
+
+        /* Movimiento de texto (marquee) con animación CSS */
+        .marquee {
+            font-size: 1.5rem;
+            color: blue;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: moveText 10s linear infinite;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Estilos para el modo oscuro */
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .dark-mode h1, .dark-mode h2, .dark-mode .marquee {
+            color: white;
+        }
+
+        .dark-mode table {
+            background-color: #444;
+        }
+
+        .dark-mode th {
+            background-color: #555;
+            color: #fff;
+        }
+
+        .dark-mode td {
+            background-color: #555;
+            color: #ddd;
+        }
+
+        .dark-mode .nav a {
+            color: white;
+        }
+
+        .dark-mode .nav a:hover {
+            color: #ccc;
+        }
+
+        /* Estilo para el botón en modo oscuro */
+        .dark-mode button {
+            background-color: #555;
+            color: #fff;
+            border: 1px solid #888;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .dark-mode button:hover {
+            background-color: #666;
+        }
+
+        /* Estilos adicionales para mejorar la accesibilidad */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 500px;
+            max-width: 700px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            h1, h2 {
+                font-size: 1.2rem;
+            }
+
+            .content-page {
+                padding: 10px;
+            }
+
+            iframe {
+                height: 300px;
+            }
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav a {
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Título de la página -->
+    <div class="content">
+        <h1>INFORMACIÓN RANDOM SOBRE PINGÜINOS</h1>
+    </div>
+
+    <!-- Navegación entre las páginas -->
+    <div class="nav" aria-label="Navegación entre páginas">
+        <a href="#" onclick="showPage(1)" aria-label="Ir a la página 1">Página 1</a>
+        <a href="#" onclick="showPage(2)" aria-label="Ir a la página 2">Página 2</a>
+        <a href="#" onclick="showPage(3)" aria-label="Ir a la página 3">Página 3</a>
+        <a href="#" onclick="showPage(4)" aria-label="Ir a la página 4">Página 4</a>
+    </div>
+
+    <!-- Movimiento de texto (marquee) usando animación CSS -->
+    <div class="content">
+        <h2 class="section-title"/h2>
+        <div class="marquee" aria-live="polite">PINGÜINOS - Descubre su fascinante mundo</div>
+        <div class="marquee" aria-live="polite" style="animation-direction: reverse;">PINGÜINOS - ¡Maravillosos en todo el mundo!</div>
+    </div>
+
+    <!-- Página 1: Introducción sobre los pingüinos -->
+    <div class="content-page active" id="page1">
+        <h2>¿QUÉ SON LOS PINGUINOS?</h2>
+        <p>Los pingüinos son aves marinas no voladoras que habitan principalmente en el hemisferio sur. Son conocidos por su habilidad para nadar y su capacidad para adaptarse a climas fríos. Tienen un cuerpo aerodinámico que les permite moverse rápidamente en el agua, y sus alas actúan como aletas para impulsarse bajo el agua.</p>
+        <p>El rango de hábitat de los pingüinos es muy amplio, desde la Antártida hasta las islas Galápagos cerca del ecuador. A pesar de que se asocian con zonas frías, algunas especies de pingüinos pueden habitar en áreas templadas e incluso tropicales.</p>
+        <img src="https://fotografias.lasexta.com/clipping/cmsimages01/2015/02/17/A152938B-D217-40FB-BB08-7F054931442B/97.jpg?crop=795,447,x0,y41&width=1600&height=900&optimize=high&format=webply"
+            alt="Pingüino en su hábitat natural">
+    </div>
+
+    <!-- Página 2: Características de los Pingüinos -->
+    <div class="content-page" id="page2">
+        <h2>Características de los Pingüinos</h2>
+        <p>Los pingüinos tienen una serie de adaptaciones únicas que les permiten sobrevivir en su entorno natural. A continuación, algunas de sus características más destacadas:</p>
+        <ul>
+            <li><strong>Alas como aletas:</strong> Aunque no pueden volar, sus alas se han adaptado para funcionar como aletas que les permiten nadar a grandes velocidades bajo el agua.</li>
+            <li><strong>Plumaje denso:</strong> Su plumaje es extremadamente denso, lo que les ayuda a mantener el calor, incluso en las aguas más frías. Además, su capa de grasa debajo de la piel los aísla térmicamente.</li>
+            <li><strong>Visión adaptada:</strong> Sus ojos están adaptados para ver bajo el agua y en la oscuridad, lo que les ayuda a cazar peces y otros animales marinos.</li>
+            <li><strong>Comportamiento social:</strong> Los pingüinos son aves sociales que viven en grandes colonias. Las interacciones dentro de estas colonias son vitales para su supervivencia y cría.</li>
+            <li><strong>Capacidad de inmersión:</strong> Pueden sumergirse a grandes profundidades para cazar, algunas especies alcanzan los 500 metros de profundidad.</li>
+        </ul>
+    </div>
+
+    <!-- Página 3: Especies de Pingüinos -->
+    <div class="content-page" id="page3">
+        <h2>Especies de Pingüinos</h2>
+        <p>Existen alrededor de 18 especies de pingüinos, cada una con características y comportamientos particulares. A continuación, algunas de las especies más conocidas:</p>
+        <table>
+            <caption>Especies de Pingüinos</caption>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Especie</th>
+                    <th>Hábitat</th>
+                    <th>Dieta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pingüino Emperador</td>
+                    <td>Aptenodytes forsteri</td>
+                    <td>Antártida</td>
+                    <td>Peces, calamares</td>
+                </tr>
+                <tr>
+                    <td>Pingüino de Adelia</td>
+                    <td>Pygoscelis adeliae</td>
+                    <td>Antártida</td>
+                    <td>Peces, krill</td>
+                </tr>
+                <tr>
+                    <td>Pingüino de Humboldt</td>
+                    <td>Spheniscus humboldti</td>
+                    <td>Chile, Perú</td>
+                    <td>Peces, moluscos</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <h2>Documental de estas mismas:</h2>
+            <iframe src="https://www.youtube.com/embed/2KVv0E0Ri4g" title="Video de Pingüinos"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Página 4: Conservación de los Pingüinos -->
+    <div class="content-page" id="page4">
+        <h2>Conservación de los Pingüinos</h2>
+        <p>Los pingüinos enfrentan varias amenazas, entre ellas el cambio climático, la contaminación marina, la sobrepesca y la pérdida de hábitat. A medida que las temperaturas del océano aumentan y el hielo marino se derrite, los pingüinos pierden su hábitat natural y la disponibilidad de su fuente de alimentación, como el krill y los peces. La sobrepesca también afecta la cantidad de comida disponible para ellos.</p>
+        <p>Es vital la conservación de sus hábitats y la adopción de políticas que protejan a estas aves. Algunas especies de pingüinos, como el pingüino de Galápagos, están en peligro crítico de extinción. Organizaciones de conservación están trabajando para proteger a los pingüinos y su entorno, pero es esencial la participación de todos para asegurar su futuro.</p>
+    </div>
+
+    <!-- Botón para activar el modo oscuro -->
+    <button onclick="toggleDarkMode()" aria-label="Activar/Desactivar Modo Oscuro">Activar/Desactivar Modo Oscuro</button>
+
+    <script>
+        let currentPage = 1;
+
+        function showPage(pageNumber) {
+            const pages = document.querySelectorAll('.content-page');
+            pages.forEach((page, index) => {
+                page.classList.remove('active');
+                if (index + 1 === pageNumber) {
+                    page.classList.add('active');
+                }
+            });
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+
+</body>
+
+</html>
+
+
